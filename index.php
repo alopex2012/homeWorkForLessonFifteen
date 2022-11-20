@@ -21,7 +21,7 @@
     </style>
 </head>
 <body>
-<h5>Заняття 15. Контроль типів під час роботи з об'єктами </h5>
+<h5>Заняття 15. Контроль типів під час роботи з об'єктами. Статичні методи в ООП на PHP </h5>
 <hr>
 
 <?php
@@ -37,31 +37,29 @@ echo "<pre>",
 ",
 "</pre>";
 
-//create an instance of the class Compare
+//create an instance of the class Post
+$postProgrammer = new Post("Programmer", 5000);
+$postDriver = new Post("Driver", 3000);
+$postManager = new Post("Manager", 2000);
 
 echo "<hr />";
 echo "<pre>",
 "
-    3.	Зробіть клас Employee, у якому будуть такі характеристики: name і surname. Нехай початкові значення цих властивостей передаватимуться параметром конструктор.
+    3.	Зробіть клас Employee, у якому будуть такі характеристики: name і surname. 
+    Нехай початкові значення цих властивостей передаватимуться параметром конструктор.
     4.	Зробіть геттери та сеттери для властивостей name та surname.
-    5.	Нехай тепер третім параметром конструктора передаватиметься посада працівника, що є об'єктом класу Post. Вкажіть тип цього параметра у явному вигляді.
+    5.	Нехай тепер третім параметром конструктора передаватиметься посада працівника, що є об'єктом класу Post.
+    Вкажіть тип цього параметра у явному вигляді.
     6.	Зробіть те щоб посада працівника (тобто переданий об'єкт із посадою) записувалася у властивість post.
-",
-"</pre>";
-
-//create an instance of the class Compare
-
-
-echo "<hr />";
-
-echo "<pre>",
-"
     7.	Створити об'єкт класу Employee з посадою програміст. Під час його створення використовуйте один із об'єктів класу Post, створений нами раніше.
     8.	Виведіть на екран ім'я, прізвище, посаду та зарплату створеного працівника.
 ",
 "</pre>";
 
-//create an instance of the class Compare
+//create an instance of the class Employee
+$employee = new Employee("Alex", "Kent", $postProgrammer);
+echo "employee : Name - " . $employee->getName() . ", Surname - " . $employee->getSurname() .
+    ", Post - " . $employee->getPost()->getName() . ", Salary - " . $employee->getPost()->getSalary();
 
 echo "<hr />";
 
@@ -71,10 +69,15 @@ echo "<pre>",
     Вкажіть у методі тип параметра, що приймається в явному вигляді.",
 "</pre>";
 
-//create an instance of the class EmployeeCollection
-
+//create an instance of the class Employee
+$employee = new Employee("Martin", "Eden", $postDriver);
+echo "employee : Name - " . $employee->getName() . ", Surname - " . $employee->getSurname() .
+    ", Post - " . $employee->getPost()->getName() . ", Salary - " . $employee->getPost()->getSalary();
 echo "<br />";
-
+//change the value of the $post property of an object using the method changePost()
+$employee->changePost($postManager);
+echo "employee : Name - " . $employee->getName() . ", Surname - " . $employee->getSurname() .
+    ", Post - " . $employee->getPost()->getName() . ", Salary - " . $employee->getPost()->getSalary();
 
 echo "<hr />";
 
@@ -85,23 +88,23 @@ echo "<pre>",
 ",
 "</pre>";
 
-//create an instance of the class EmployeeCollectionMod
-
+//assigning values to static properties of class Num
+Num::$num1 = 2;
+Num::$num2 = 3;
+echo "Sum of property values num1 and num2 = " . Num::$num1 + Num::$num2;
 
 echo "<hr />";
 
 echo "<pre>",
 "
-    11.	Зробіть клас Num, у якого будуть дві приватні статичні властивості: num1 та num2. 
+    11.	Зробіть клас NumMod, у якого будуть дві приватні статичні властивості: num1 та num2. 
     Нехай за умовчанням у властивості num1 зберігається число 2, а властивості num2 - число 3.
     12.	Зробіть у класі Num метод getSum, який виводитиме на екран суму значень властивостей num1 та num2.
 ",
 "</pre>";
 
-//create an instance of the class Employee6
-
-echo "<br />";
-
+//display the sum of the values of private static properties of the Num class using the static method getSum()
+echo "Sum of property values num1 and num2 = " . NumMod::getSum();
 
 echo "<hr />";
 echo "<pre>",
@@ -110,8 +113,8 @@ echo "<pre>",
     За допомогою цього методу виведіть на екран об'єм кулі з радіусом 10.",
 "</pre>";
 
-//create an instance of the class User12
-
+//Finding the volume of a ball with a radius of 10 using the static method getSphereVolume()
+echo "Volume of a sphere with a radius of 10 = " . round(Geometry::getSphereVolume(10), 2);
 
 echo "<hr />";
 
@@ -122,8 +125,10 @@ echo "<pre>",
 ",
 "</pre>";
 
-//create an instance of the class Employee19
-
+$arr = [2, 3, 4, 5];
+print_r($arr);
+echo "<br />";
+echo "Sum of squares of array elements = " . ArraySumHelper::getSum2($arr);
 echo "<hr />";
 ?>
 </body>
