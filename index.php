@@ -25,7 +25,6 @@
 <hr>
 
 <?php
-
 require_once __DIR__ . '/vendor/autoload.php';
 
 use App\ArraySumHelper, App\Employee, App\Geometry, App\Num, App\NumMod, App\Post;
@@ -39,9 +38,11 @@ echo "<pre>",
 
 //create an instance of the class Post
 $postProgrammer = new Post("Programmer", 5000);
+echo "Post1 - " . $postProgrammer->getName() . ", Salary - " . $postProgrammer->getSalary()."<br />";
 $postDriver = new Post("Driver", 3000);
+echo "Post2 - " . $postDriver->getName() . ", Salary - " . $postDriver->getSalary()."<br />";
 $postManager = new Post("Manager", 2000);
-
+echo "Post3 - " . $postManager->getName() . ", Salary - " . $postManager->getSalary()."<br />";
 echo "<hr />";
 echo "<pre>",
 "
@@ -128,6 +129,7 @@ echo "<pre>",
 $arr = [2, 3, 4, 5];
 print_r($arr);
 echo "<br />";
+//Finding the sum of squares of array elements using a static method getSum()
 echo "Sum of squares of array elements = " . ArraySumHelper::getSum2($arr);
 echo "<hr />";
 ?>
