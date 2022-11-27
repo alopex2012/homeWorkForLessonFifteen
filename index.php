@@ -25,7 +25,6 @@
 <hr>
 
 <?php
-
 require_once __DIR__ . '/vendor/autoload.php';
 
 use App\ArraySumHelper, App\Employee, App\Geometry, App\Num, App\NumMod, App\Post;
@@ -39,11 +38,11 @@ echo "<pre>",
 
 //create an instance of the class Post
 $postProgrammer = new Post("Programmer", 5000);
-echo "Post - " . $postProgrammer->getName() . ", Salary - " . $postProgrammer->getSalary()."<br />";
+echo "Post1 - " . $postProgrammer->getName() . ", Salary - " . $postProgrammer->getSalary()."<br />";
 $postDriver = new Post("Driver", 3000);
-echo "Post - " . $postDriver->getName() . ", Salary - " . $postDriver->getSalary()."<br />";
+echo "Post2 - " . $postDriver->getName() . ", Salary - " . $postDriver->getSalary()."<br />";
 $postManager = new Post("Manager", 2000);
-echo "Post - " . $postManager->getName() . ", Salary - " . $postManager->getSalary()."<br />";
+echo "Post3 - " . $postManager->getName() . ", Salary - " . $postManager->getSalary()."<br />";
 echo "<hr />";
 echo "<pre>",
 "

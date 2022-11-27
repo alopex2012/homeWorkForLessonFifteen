@@ -2,24 +2,48 @@
 
 namespace App;
 
+/**
+ * Class Post
+ * @package App
+ */
 class Post
 {
-    private $name;
-    private $salary;
+    /**
+     * @var string $name
+     */
+    private string $name;
+    /**
+     * @var int $salary
+     */
+    private int $salary;
 
-    public function __construct($name, $salary)
+    /**
+     * Post constructor.
+     * @param string $name
+     * @param int $salary
+     */
+    public function __construct(string $name, int $salary)
     {
         $this->name = $name;
         $this->salary = $salary;
 
     }
 
-    public function getName()
+
+    /**
+     * Getter for $name
+     * @return string $name
+     */
+    public function getName(): string
     {
         return $this->name;
     }
 
-    public function getSalary()
+    /**
+     * Getter for $salary
+     * @return int $salary
+     */
+    public function getSalary(): int
     {
         return $this->salary;
     }

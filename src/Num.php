@@ -1,7 +1,18 @@
 <?php
+
 namespace App;
+/**
+ * Class Num
+ * @package App
+ */
 class Num
 {
-    public static $num1;
-    public static $num2;
+    /**
+     * @var int $num1
+     */
+    public static int $num1;
+    /**
+     * @var int $num2
+     */
+    public static int $num2;
 }
